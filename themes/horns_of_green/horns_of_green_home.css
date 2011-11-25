@@ -1,0 +1,221 @@
+/* News & Announcements Block */
+#block-views-announcements-block_1
+{
+   width: 679px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#block-views-announcements-block_1 .content
+{
+	border: none;
+   padding: 0px;
+   padding-right: 6px;
+   padding-left: 6px;
+}
+
+#block-views-announcements-block_1 .views-table
+{
+	margin-top: 0px;
+   margin-bottom: 2px;
+}
+
+#block-views-announcements-block_1 .views-table td.views-field-created
+{
+	text-align: right;
+}
+
+#block-views-announcements-block_1 .views-table td.views-field-title
+{
+	font-size: 1.15em;
+}
+
+#block-views-announcements-block_1 .views-table tbody tr
+{
+	background-color: #FFF;
+   border-bottom: thin dotted #0f7a39;
+	line-height: 2em;
+}
+
+.announcement-block-title
+{
+	
+}
+
+.announcement-block-wrapper
+{
+	width: 228px;
+   
+
+}
+
+.announcement-block-wrapper-inner
+{
+	position: relative;
+   border-bottom: thin dotted;
+   border-color: #0f7a39;
+   height: 100px;
+   padding: 15px 5px 0px 5px;
+}
+
+.announcement-block-title
+{
+	
+}
+
+.announcement-block-date
+{
+	position: absolute;
+   bottom: 5px;
+}
+
+.announcement-block-all-news-link
+{
+	float: right;
+}
+
+/* latest blogs block */
+#blog-block-wrapper-left-shadow /* Outer wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_border_left.jpg);
+   background-position: top left;
+   background-repeat: repeat-y;
+   background-color: #EAEAEA;
+   margin-left: 9px;
+   margin-bottom: 16px;
+  }
+  
+  #blog-block-wrapper-right-shadow /* Inner wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_border_right.jpg);
+   background-position: top right;
+   background-repeat: repeat-y;
+   margin-right: -1px;
+  }
+  
+  #blog-block-wrapper-bottom-shadow /* Inner wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_border_bottom.jpg);
+   background-position: bottom left;
+   background-repeat: repeat-x;
+  }
+  
+  #blog-block-wrapper-left-corner /* Inner wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_corner_left.jpg);
+   background-position: bottom left;
+   background-repeat: no-repeat;
+  }
+  
+  #blog-block-wrapper-right-corner /* Inner wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_corner_right.jpg);
+   background-position: bottom right;
+   background-repeat: no-repeat;
+  }
+  
+#block-views-latest_blogs-block_1
+{
+	width: 404px;
+   float: left;
+}
+
+#block-views-latest_blogs-block_1 .content
+{
+	border: none;
+   padding-top: 2px;
+}
+
+#block-views-latest_blogs-block_1 .node-type-blog .content
+{
+	padding-left: 0px;
+}
+
+#block-views-latest_blogs-block_1 .views-row
+{
+	/*border-bottom: thin dotted;
+   border-color: #0f7a39;
+   padding-bottom: 4px;*/
+}
+
+#block-views-latest_blogs-block_1 .blog-block-view-full-blog-link
+{
+	float: right;
+   margin-right: 10px;
+   margin-bottom: 4px;
+}
+
+#blog-block-header-wrapper
+{
+	height: 72px;
+}
+
+
+
+/* upcoming events block */
+#calendar-block-wrapper-left-shadow /* Outer wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_border_left.jpg);
+   background-position: top left;
+   background-repeat: repeat-y;
+   background-color: #EAEAEA;
+   margin-left: 10px;
+   margin-bottom: 16px;
+  }
+  
+  #calendar-block-wrapper-right-shadow /* Inner wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_border_right.jpg);
+   background-position: top right;
+   background-repeat: repeat-y;
+   margin-right: -1px;
+  }
+  
+  #calendar-block-wrapper-bottom-shadow /* Inner wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_border_bottom.jpg);
+   background-position: bottom left;
+   background-repeat: repeat-x;
+  }
+  
+  #calendar-block-wrapper-left-corner /* Inner wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_corner_left.jpg);
+   background-position: bottom left;
+   background-repeat: no-repeat;
+  }
+  
+  #calendar-block-wrapper-right-corner /* Inner wrapper around the content area */
+  {
+  	background-image: url(/sites/all/themes/horns_of_green/images/common/common_corner_right.jpg);
+   background-position: bottom right;
+   background-repeat: no-repeat;
+  }
+  
+#block-views-event_calendar_upcoming-block_1
+{
+	width: 307px;
+   float: right;
+}
+
+#block-views-event_calendar_upcoming-block_1 .content
+{
+	border: none;
+}
+
+#calendar-block-header-wrapper
+{
+	height: 73px;
+}
+
+#block-views-event_calendar_upcoming-block_1 .calendar-block-view-calendar-link
+{
+	float: right;
+	margin: 1px 20px 6px 0px;
+}
+
+#block-views-event_calendar_upcoming-block_1 .view-event-calendar-upcoming
+{
+	border-bottom: thin dotted;
+	border-color: #0f7a39;
+}

@@ -1,0 +1,540 @@
+/* Horns Of Green CSS Crossover EXTREME! */
+
+a img
+  {
+  	vertical-align: middle;
+  }
+  
+/** header **/
+  #header
+  {
+  	background-color: #EAEAEA;
+  }
+
+  #header-inner
+  {
+  }
+
+  #logo-title /* Wrapper for logo, website name, and slogan */
+  {
+  }
+
+  #logo /* Wrapper for logo */
+  {
+    margin: 29px 10px 0 14px;
+    padding: 0;
+  }
+
+  #logo-image /* The actual logo image */
+  {
+  }
+  
+  
+#header-top-user #user-login-form table
+{
+	width: auto;
+	margin: 0px;
+	float: right;
+}
+
+#header-top-user #user-login-form tbody
+{
+	border: none;
+}
+
+#header-top-user #user-login-form td
+{
+	height: 26px;
+}
+
+#header-top-user #user-login-form label
+{
+	font-weight: bold;
+}
+
+#header-top-user #user-login-form input.form-text
+{
+	width: 130px;
+}
+  
+  #header-bottom #quick-find-buttons div:hover
+  {
+	color: #f18729;
+  }
+
+#header-top-user div.page-divider-thick,
+#header-top-user h2  {
+	display: none;
+}
+
+#header-top-user #block-user-0 {
+  margin: 0;
+}
+
+#header-top-user div.content {
+	padding: 0;
+  border: none;
+}
+
+#header-bottom #search-box table
+{
+	padding: 0px;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+#header-bottom #search-box tbody
+{
+	border: none;
+}
+
+#header-bottom #search-box input.form-text
+{
+	height: 100%;
+}
+
+/** header **/
+  #header {
+}
+#header-inner {
+	background-image: url(/sites/all/themes/horns_of_green/images/common/common_header.jpg);
+	height: 284px;
+}
+#logo-title {
+	float: left;
+}
+#logo {
+	float: left;
+}
+#site-name {
+}
+#site-slogan {
+}
+#header-top {
+	height: 123px;
+}
+#header-top a:link {
+	color: #f18729;
+}
+#header-top a:visited {
+	color: #f18729;
+}
+#header-top #header-mantra {
+	margin-top: 71px;
+}
+#header-top a:hover,  #header-top a:focus {
+	color: #0f7a39;
+}
+#header-get-involved-social-links {
+	float: right;
+	font-family: Georgia, verdana;
+	font-size: 1.1em;
+	font-style: italic;
+	font-weight: bold;
+	margin-top: 6px;
+	margin-right: 20px;
+}
+#header-top #header-top-user {
+	float: right;
+	margin-right: 20px;
+	margin-top: 25px;/*margin-right: 14px;*/
+}
+#header-top #header-top-user #user-login-text-fields {
+	float: right;
+}
+#header-top #header-top-user #user-login-text-fields input {
+	width: 150px;
+}
+#header-top #header-top-user #user-login-text-fields #edit-name-wrapper {
+	padding-top: 3px;
+	padding-bottom: 6px;
+	margin: 0px;
+}
+#header-top #header-top-user #user-login-text-fields #edit-pass-wrapper {
+	padding: 0px;
+	margin: 0px;
+}
+#header-top #header-top-user #user-login-button {
+	float: right;
+	height: 56px;
+	overflow: hidden;
+}
+#header-top #header-top-user #user-forgot-password {
+	color: #0f7a39;
+	font-size: .8em;
+	display: block;
+	text-align: right;
+	clear: both;/*	font-style: italic;
+	font-family: Georgia, Verdana;
+	font-weight: bold;*/
+}
+#header-top #header-top-user #user-forgot-password a, 
+#header-top #header-top-user #user-register a {
+	color: #abc22a;
+  text-decoration: none;
+}
+#header-top #header-top-user #user-register {
+	color: #0f7a39;
+	font-style: italic;
+	font-family: Georgia, Verdana;
+	font-weight: bold;
+	font-size: 1.2em;
+	display: block;
+}
+#header-top #header-top-user #user-login-button input:hover {
+	margin-top: -56px;
+}
+#header-top #header-top-user-info {
+	float:right;
+	margin-bottom:20px;
+	margin-left:12px;
+	margin-right:12px;
+	margin-top:20px;
+}
+#header-top #header-top-user-info a {
+	color: #0F7A39;
+}
+#header-top #header-top-user-info a:hover {
+}
+#header-blocks {
+	clear: both; /* Clear the logo */
+}
+#header-middle {
+	height: 36px;
+	width: 100%;
+}
+#header-bottom {
+	height: 125px;
+}
+#header-bottom #search-box {
+	float:left;
+	margin-left:32px;
+	margin-top: 42px;
+	width:250px;
+}
+#header-bottom #search-box div {
+	display: block;
+	margin: 0px;
+}
+#header-bottom #search-box input {
+	margin: 0px;
+}
+#header-bottom #search-box #search-button input:hover {
+	margin-top: -32px;
+}
+#header-bottom #search-box #edit-search-block-form-1 {
+	font-size:1.2em;
+	/*margin: 3px 0 3px 1px;*/
+	padding:2px;
+	width:203px;
+}
+#header-bottom #search-box #search-button {
+	/*float: right;*/
+	height: 32px;
+	overflow: hidden;
+}
+#header-bottom #quick-find-buttons {
+	float: right;
+	margin-right: 4px;/*margin-top: 10px;*/
+}
+#header-bottom #quick-find-buttons div {
+	float: left;
+	color: white;
+	font-style: italic;
+	font-size: 1.25em;
+	font-weight: bold;
+	font-family: Georgia, Verdana;
+	text-align: center;
+	margin-right: 9px;
+	width: 96px;
+}
+#header-bottom #quick-find-buttons a {
+	margin: 3px 0 -6px 0;/*DK*/
+	height: 96px;
+	display: block;
+	overflow: hidden;
+}
+#header-bottom #quick-find-buttons a img {
+	vertical-align: top;
+}
+#header-bottom #quick-find-buttons a:hover img {
+	margin-top: -96px; /* move image up to show the roll over state */
+}
+#header-bottom #quick-find-text {
+	float: left;
+	margin-left: 40px;
+	margin-right: 16px;
+	margin-top: 19px;
+	width: 106px;
+	padding-right: 10px;
+	padding-top: 12px;
+	padding-bottom: 6px;
+	border-right: thin solid white;
+	font-family: Georgia, Verdana;
+	line-height: 1.5em;
+	padding-left: 7px;
+	text-align: right;
+}
+#header-bottom #quick-find-text #find {
+	color: #abc22a;
+	font-size: 35px;
+	font-weight: bold;
+}
+#header-bottom #quick-find-text #what {
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: bold;
+}
+#header-bottom #quick-find-text #faster {
+	color: #f18729;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+/* Search */
+  #edit-search-theme-form-1-wrapper label /* Label that says "Search this site:" */
+  {
+    display: none;
+  }
+  
+/* Navigation */
+/** navbar **/
+  #navbar
+  {
+  	overflow: visible;
+	padding-left: 20px;
+  }
+/** primary links navigation menu **/
+#navbar ul li div.menu-item-left-cap
+{
+	background-image: url(/sites/all/themes/horns_of_green/images/common/common_navBtn_leftCap.png);
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	height: 25px;
+}
+
+#navbar ul li div.menu-item-right-cap
+{
+	background-image: url(/sites/all/themes/horns_of_green/images/common/common_navBtn_rightCap.png);
+	background-position: right;
+	background-repeat: no-repeat;
+	padding-right: 12px;
+	height: 25px;
+}
+
+#navbar li a
+{
+	background-image: url(/sites/all/themes/horns_of_green/images/common/common_navBtn_tile.png);
+	background-repeat: repeat-x;
+	height: 18px;
+	color: #abc22a;
+	font-weight: bold;
+}
+
+#navbar li a.active,
+#navbar li a:hover
+{
+	color: #f18729;
+}
+
+#navbar ul ul
+{
+	padding-top: 5px;
+}
+
+#navbar ul,
+#navbar li
+{
+	border: none;
+}
+
+/** navbar **/
+  #navbar {
+	float: left;
+	/*width: 100%;*/
+    margin-left: 0;
+	/*margin-right: -100%;*/ /* Negative value of #navbar's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #navbar-inner. */
+	height: 26px; /* The navbar can have any arbritrary height. We picked one
+                      that is twice the line-height pluse 1em: 2 x 1.3 + 1 = 3.6
+                      Set this to the same value as the margin-top below. */
+	padding: 5px;
+}
+
+#navbar
+  {
+  	overflow: visible;
+	padding-left: 20px;
+  } 
+#navbar-inner {
+	text-align: center;/*    height: 40px;*/
+  }
+#navbar-inner a {
+	border: 0 none;
+	text-decoration: none;
+}
+#navbar-inner img {
+	vertical-align: top;
+}
+#navbar-inner a:hover img {
+	margin-top: -40px; /* move image up to show the roll over state */
+}
+/* User Login */
+  #block-user-0 /* "User login form" block */
+  {
+  }
+
+
+/** footer **/
+  #footer {
+  margin-top: 20px;
+}
+#footer-inner {
+}
+#footer-top {
+	background-image: url(/sites/all/themes/horns_of_green/images/common/common_footer_top.jpg);
+	background-repeat: no-repeat;
+	padding: 18px 20px 7px 20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	height: 42px;
+}
+#footer-top a:link {
+	color: #FFFFFF;
+}
+#footer-top a:visited {
+	color: #FFF;
+}
+#footer-top a:hover,  #footer-top a:focus {
+	color: #f18729;
+}
+#footer-top img, #footer-top div,  #footer-top span, #footer-top ul {
+	vertical-align: top;
+}
+#footer-top-right {
+	float: right;
+	height: 35px;
+	overflow: hidden;
+	margin-top: 5px;
+}
+#footer-top-right a:hover img,  #footer-top-right a:focus img {
+	margin-top: -33px;
+}
+#footer-top-right #footer-sign-in {
+	margin-right: 28px;
+	position: relative;
+	top: 9px;
+}
+#footer-middle {
+	padding: 20px 40px 12px 0px;
+}
+#footer-middle #footer-service-providers {
+	height: 96px;
+	width: 179px;
+	margin-left: 12px;
+	overflow: hidden;
+	border: thin dotted;
+	border-color: #0F7A39;
+}
+#footer-middle #footer-service-providers a:hover img,  #footer-middle #footer-service-providers a:focus img {
+	margin-top: -96px;
+}
+#footer-middle #footer-middle-links {
+	float: right;/*margin-right: 82px;*/
+  }
+#footer-middle ul {
+	float: left;
+	list-style-type: none;
+	margin-left: 80px;
+	margin-top: 0px;
+	font-size: .8em;
+}
+#footer-middle ul p {
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-top: 0px;
+}
+#footer-middle ul a {
+	color: #000000;
+	text-decoration: none;
+}
+#footer-middle ul a:hover,  #footer-middle ul a:focus {
+	text-decoration: underline;
+}
+#footer-bottom {
+	/*height: 32px;*/
+    background-image: url(/sites/all/themes/horns_of_green/images/common/common_footer_bottom.jpg);
+	padding: 10px 40px 0 50px;
+	background-repeat: no-repeat;
+	font-style: italic;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #FFFFFF;
+	font-size: .8em;
+}
+#footer-bottom ul {
+	list-style-type: none;
+	float: right;
+	margin: 0;
+}
+#footer-bottom li {
+	float: left;
+	margin-left: 12px;
+}
+#footer-bottom li a {
+	float: left;
+	text-decoration: none;
+}
+#footer-bottom li a:visited {
+	color: #FFFFFF;
+}
+#footer-bottom li a:hover,  #footer-bottom li a:focus {
+	text-decoration: underline;
+}
+#footer-bottom #fingerpainted-link,  #footer-bottom #fingerpainted-link a:hover  #footer-bottom #fingerpainted-link a:focus {
+	color: #abc22a;
+}
+
+/** footer **/
+  #footer
+  {
+  }
+
+  #footer-inner
+  {
+  }
+
+  #footer-message /* Wrapper for the footer message from Drupal's "Site information"
+                     and for any blocks placed in the footer region */
+  {
+  }
+  
+  #footer-middle
+  {
+  	background-color: #EAEAEA;
+  }
+  
+  #footer-bottom a:link,
+  #footer-bottom a:visited
+  {
+  	color: #fff;
+  }
+  
+  #footer-bottom a:hover,
+  #footer-bottom a:focus
+  {
+  	color: #f18729;
+  }
+  
+  div.end-page-box
+  {
+  	padding-bottom: 6px;
+	width: 100%;
+	clear: both;
+  }
+  
+  /* Splash Page */
+  #node-1964
+  {
+  	margin-bottom: 120px;
+  }

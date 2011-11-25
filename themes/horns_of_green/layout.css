@@ -1,0 +1,552 @@
+/* $Id: layout-fixed.css,v 1.5.2.3 2009/02/13 19:20:19 johnalbin Exp $ */
+
+/*
+ * LAYOUT STYLES
+ *
+ * Define CSS classes to create a table-free, 3-column, 2-column, or single
+ * column layout depending on whether blocks are enabled in the left or right
+ * columns.
+ *
+ * This layout is based on the Zen Columns layout method.
+ *   http://drupal.org/node/201428
+ *
+ * Only CSS that affects the layout (positioning) of major elements should be
+ * listed here.  Such as:
+ *   display, position, float, clear, width, height, min-width, min-height
+ *   margin, border, padding, overflow
+ */
+
+
+/** body **/
+  body {
+	margin: 0;
+	padding: 0;
+}
+#page,  #closure-blocks {
+	/*
+     * If you want to make the page a fixed width and centered in the viewport,
+     * this is the standards-compliant way to do that. See also the ie.css file
+     * for the necessary IE5 hack to center a div.
+     */
+    margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+}
+#page-inner {
+}
+#navigation-top,  #navigation {
+	position: absolute; /* Take the named anchors out of the doc flow    */
+	left: -10000px;     /* and prevent any anchor styles from appearing. */
+}
+#skip-to-nav {
+	float: right;
+	margin: 0 !important;
+	font-size: 0.8em;
+}
+#skip-to-nav a:link, #skip-to-nav a:visited {
+	color: #fff; /* Same as background color of page */
+}
+#skip-to-nav a:hover {
+	color: #000;
+	text-decoration: none;
+}
+/* Alternatively, the skip-to-nav link can be completely hidden until a user tabs
+     to the link. Un-comment the following CSS to use this technique. */
+  /*
+  #skip-to-nav a, #skip-to-nav a:hover, #skip-to-nav a:visited
+  {
+    position: absolute;
+    left: 0;
+    top: -500px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  #skip-to-nav a:active, #skip-to-nav a:focus
+  {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  */
+
+/** header **/
+  #header {
+}
+#header-inner {
+	background-image: url(/sites/all/themes/horns_of_green/images/common/common_header.jpg);
+	height: 284px;
+}
+#logo-title {
+	float: left;
+}
+#logo {
+	float: left;
+}
+#site-name {
+}
+#site-slogan {
+}
+#header-top {
+	height: 123px;
+}
+#header-top a:link {
+	color: #f18729;
+}
+#header-top a:visited {
+	color: #f18729;
+}
+#header-top #header-mantra {
+	margin-top: 71px;
+}
+#header-top a:hover,  #header-top a:focus {
+	color: #0f7a39;
+}
+#header-get-involved-social-links {
+	float: right;
+	font-family: Georgia, verdana;
+	font-size: 1.1em;
+	font-style: italic;
+	font-weight: bold;
+	margin-top: 6px;
+	margin-right: 20px;
+}
+#header-top #header-top-user {
+	float: right;
+	margin-right: 20px;
+	margin-top: 25px;/*margin-right: 14px;*/
+}
+#header-top #header-top-user #user-login-text-fields {
+	float: right;
+}
+#header-top #header-top-user #user-login-text-fields input {
+	width: 150px;
+}
+#header-top #header-top-user #user-login-text-fields #edit-name-wrapper {
+	padding-top: 3px;
+	padding-bottom: 6px;
+	margin: 0px;
+}
+#header-top #header-top-user #user-login-text-fields #edit-pass-wrapper {
+	padding: 0px;
+	margin: 0px;
+}
+#header-top #header-top-user #user-login-button {
+	float: right;
+	height: 56px;
+	overflow: hidden;
+}
+#header-top #header-top-user #user-forgot-password {
+	color: #0f7a39;
+	font-size: .8em;
+	display: block;
+	text-align: right;
+	clear: both;/*	font-style: italic;
+	font-family: Georgia, Verdana;
+	font-weight: bold;*/
+}
+
+#header-top-user div.page-divider-thick,
+#header-top-user h2  {
+	display: none;
+}
+
+#header-top-user #block-user-0 {
+  margin: 0;
+}
+
+#header-top-user div.content {
+	padding: 0;
+  border: none;
+}
+
+#header-top #header-top-user #user-forgot-password a, #header-top #header-top-user #user-register a {
+	color: #abc22a;
+}
+#header-top #header-top-user #user-register {
+	color: #0f7a39;
+	font-style: italic;
+	font-family: Georgia, Verdana;
+	font-weight: bold;
+	font-size: 1.2em;
+	display: block;
+}
+#header-top #header-top-user #user-login-button input:hover {
+	margin-top: -56px;
+}
+#header-top #header-top-user-info {
+	float:right;
+	margin-bottom:20px;
+	margin-left:12px;
+	margin-right:12px;
+	margin-top:20px;
+}
+#header-top #header-top-user-info a {
+	color: #0F7A39;
+}
+#header-top #header-top-user-info a:hover {
+}
+#header-blocks {
+	clear: both; /* Clear the logo */
+}
+#header-middle {
+	height: 36px;
+	width: 100%;
+}
+#header-bottom {
+	height: 125px;
+}
+#header-bottom #search-box {
+	float:left;
+	margin-left:32px;
+	margin-top: 42px;
+	width:250px;
+}
+#header-bottom #search-box div {
+	display: block;
+	margin: 0px;
+}
+#header-bottom #search-box input {
+	margin: 0px;
+}
+#header-bottom #search-box #search-button input:hover {
+	margin-top: -32px;
+}
+#header-bottom #search-box #edit-search-block-form-1 {
+	font-size:1.2em;
+	/*margin: 3px 0 3px 1px;*/
+	padding:2px;
+	width:203px;
+}
+#header-bottom #search-box #search-button {
+	/*float: right;*/
+	height: 32px;
+	overflow: hidden;
+}
+#header-bottom #quick-find-buttons {
+	float: right;
+	margin-right: 4px;/*margin-top: 10px;*/
+}
+#header-bottom #quick-find-buttons div {
+	float: left;
+	color: white;
+	font-style: italic;
+	font-size: 1.25em;
+	font-weight: bold;
+	font-family: Georgia, Verdana;
+	text-align: center;
+	margin-right: 9px;
+	width: 96px;
+}
+#header-bottom #quick-find-buttons a {
+	margin: 3px 0 -6px 0;/*DK*/
+	height: 96px;
+	display: block;
+	overflow: hidden;
+}
+#header-bottom #quick-find-buttons a img {
+	vertical-align: top;
+}
+#header-bottom #quick-find-buttons a:hover img {
+	margin-top: -96px; /* move image up to show the roll over state */
+}
+#header-bottom #quick-find-text {
+	float: left;
+	margin-left: 40px;
+	margin-right: 16px;
+	margin-top: 19px;
+	width: 106px;
+	padding-right: 10px;
+	padding-top: 12px;
+	padding-bottom: 6px;
+	border-right: thin solid white;
+	font-family: Georgia, Verdana;
+	line-height: 1.5em;
+	padding-left: 7px;
+	text-align: right;
+}
+#header-bottom #quick-find-text #find {
+	color: #abc22a;
+	font-size: 35px;
+	font-weight: bold;
+}
+#header-bottom #quick-find-text #what {
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: bold;
+}
+#header-bottom #quick-find-text #faster {
+	color: #f18729;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: italic;
+}
+/** main (container for everything else) **/
+  #main {
+	position: relative;
+}
+#main-inner {
+}
+/** content **/
+  #content /*.no-sidebars #content*/
+  {
+	float: left;
+	width: 1000px; /* edited */
+	margin-left: 0;
+	margin-right: -1000px; /* Negative value of #content's width + left margin. */ /* edited */
+	padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
+}
+.sidebar-left #content {
+	width: 760px;
+	margin-left: 200px; /* The width of #sidebar-left. */
+	margin-right: -960px; /* Negative value of #content's width + left margin. */
+}
+.sidebar-right #content,  .no-sidebars #content {
+	width: 719px; /* edited */
+	/*margin-left: 32px;*/
+    margin-right: -751px; /* Negative value of #content's width + left margin. */ /* edited */
+}
+.two-sidebars #content {
+	width: 560px;
+	margin-left: 200px; /* The width of #sidebar-left */
+	margin-right: -760px; /* Negative value of #content's width + left margin. */
+}
+#content-inner {
+	margin: 0;
+	padding: 0;
+}
+/** navbar **/
+  #navbar {
+	float: left;
+	/*width: 100%;*/
+    margin-left: 0;
+	/*margin-right: -100%;*/ /* Negative value of #navbar's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #navbar-inner. */
+	height: 26px; /* The navbar can have any arbritrary height. We picked one
+                      that is twice the line-height pluse 1em: 2 x 1.3 + 1 = 3.6
+                      Set this to the same value as the margin-top below. */
+	padding: 5px;
+}
+.with-navbar #content,  .with-navbar #sidebar-left,  .with-navbar #sidebar-right {
+	margin-top: 23px; /* Set this to the same value as the navbar height above. *//* Edit: plus the desired margin between the content and the nav bar (30px). */
+  }
+#navbar-inner {
+	text-align: center;/*    height: 40px;*/
+  }
+#navbar-inner a {
+	border: 0 none;
+	text-decoration: none;
+}
+#navbar-inner img {
+	vertical-align: top;
+}
+#navbar-inner a:hover img {
+	margin-top: -40px; /* move image up to show the roll over state */
+}
+
+/*  #search-box
+  {
+    width: 200px;
+    margin-right: -200px; /* Negative value of #search-box's width. */
+    float: left;
+}
+*/  #primary {
+ margin-left: 200px; /* Width of search-box */
+}
+#secondary {
+	margin-left: 200px; /* Width of search-box */
+}
+#navbar ul /* Primary and secondary links */ {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+#navbar li /* A simple method to get navbar links to appear in one line. */ {
+	float: left;
+	padding: 0 10px 0 0;
+}
+/* There are many methods to get navbar links to appear in one line.
+   * Here's an alternate method: */
+  /*
+  #navbar li
+  {
+    display: inline;
+    padding: 0 10px 0 0;
+  }
+  */
+
+/** sidebar-left **/
+  #sidebar-left {
+	float: left;
+	width: 200px;
+	margin-left: 0;
+	margin-right: -200px; /* Negative value of #sidebar-left's width + left margin. */
+	padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-left-inner. */
+}
+#sidebar-left-inner {
+	margin: 0 20px 0 0;
+	padding: 0;
+}
+/** sidebar-right **/
+  #sidebar-right {
+	float: left;
+	width: 260px; /* edited */
+	margin-left: 741px; /* Width of content + sidebar-left. */ /* edited */
+	margin-right: -979px; /* Negative value of #sidebar-right's width + left margin. */ /* edited */
+	padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-right-inner. */
+}
+#sidebar-right-inner {
+	margin: 0 0 0 0;
+	padding: 0;
+}
+#sidebar-right-inner #sidebar-add-resource-button {
+	height: 119px;
+	overflow: hidden;
+	vertical-align: top;
+	margin-bottom: 18px;
+}
+#sidebar-right-inner #join-community-image-button {
+	height: 119px;
+	overflow: hidden;
+	vertical-align: top;
+	margin-bottom: 18px;
+}
+#sidebar-right-inner a {
+	border: 0 none;
+	text-decoration: none;
+}
+#sidebar-right-inner img {
+	vertical-align: top;
+}
+#sidebar-right-inner #join-community-image-button a:hover img {
+	margin-top: -119px; /* move image up to show the roll over state */
+}
+/** footer **/
+  #footer {
+}
+#footer-inner {
+}
+#footer-top {
+	background-image: url(/sites/all/themes/horns_of_green/images/common/common_footer_top.jpg);
+	background-repeat: no-repeat;
+	padding: 18px 20px 7px 20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	height: 42px;
+}
+#footer-top a:link {
+	color: #FFFFFF;
+}
+#footer-top a:visited {
+	color: #FFF;
+}
+#footer-top a:hover,  #footer-top a:focus {
+	color: #f18729;
+}
+#footer-top img, #footer-top div,  #footer-top span, #footer-top ul {
+	vertical-align: top;
+}
+#footer-top-right {
+	float: right;
+	height: 35px;
+	overflow: hidden;
+	margin-top: 5px;
+}
+#footer-top-right a:hover img,  #footer-top-right a:focus img {
+	margin-top: -33px;
+}
+#footer-top-right #footer-sign-in {
+	margin-right: 28px;
+	position: relative;
+	top: 9px;
+}
+#footer-middle {
+	padding: 20px 40px 12px 0px;
+}
+#footer-middle #footer-service-providers {
+	height: 96px;
+	width: 179px;
+	margin-left: 12px;
+	overflow: hidden;
+	border: thin dotted;
+	border-color: #0F7A39;
+}
+#footer-middle #footer-service-providers a:hover img,  #footer-middle #footer-service-providers a:focus img {
+	margin-top: -96px;
+}
+#footer-middle #footer-middle-links {
+	float: right;/*margin-right: 82px;*/
+  }
+#footer-middle ul {
+	float: left;
+	list-style-type: none;
+	margin-left: 80px;
+	margin-top: 0px;
+	font-size: .8em;
+}
+#footer-middle ul p {
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-top: 0px;
+}
+#footer-middle ul a {
+	color: #000000;
+	text-decoration: none;
+}
+#footer-middle ul a:hover,  #footer-middle ul a:focus {
+	text-decoration: underline;
+}
+#footer-bottom {
+	/*height: 32px;*/
+    background-image: url(/sites/all/themes/horns_of_green/images/common/common_footer_bottom.jpg);
+	padding: 10px 40px 0 50px;
+	background-repeat: no-repeat;
+	font-style: italic;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #FFFFFF;
+	font-size: .8em;
+}
+#footer-bottom ul {
+	list-style-type: none;
+	float: right;
+	margin: 0;
+}
+#footer-bottom li {
+	float: left;
+	margin-left: 12px;
+}
+#footer-bottom li a {
+	float: left;
+	text-decoration: none;
+}
+#footer-bottom li a:visited {
+	color: #FFFFFF;
+}
+#footer-bottom li a:hover,  #footer-bottom li a:focus {
+	text-decoration: underline;
+}
+#footer-bottom #fingerpainted-link,  #footer-bottom #fingerpainted-link a:hover  #footer-bottom #fingerpainted-link a:focus {
+	color: #abc22a;
+}
+/** closure **/
+  #closure-blocks /* See also the #page declaration above that this div shares. */ {
+}
+/** Prevent overflowing content **/
+  #header,  #content,  #navbar,  #sidebar-left,  #sidebar-right,  #footer,  #closure-blocks {
+	overflow: visible;
+	word-wrap: break-word; /* A very nice CSS3 property */
+}
+
+  /* If a div.clear-block doesn't have any content after it and its bottom edge
+     touches the bottom of the viewport, Firefox and Safari will mistakenly
+     place several pixels worth of space between the bottom of the div and the
+     bottom of the viewport. Uncomment this CSS property to fix this.
+     Note: with some over-large content, this property might cause scrollbars
+     to appear on the #page div.
+  */
+  /*
+  #page
+  {
+    overflow-y: hidden;
+  }
+  */

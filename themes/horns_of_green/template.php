@@ -1,0 +1,398 @@
+<?php
+// $Id: template.php,v 1.17.2.1 2009/02/13 06:47:44 johnalbin Exp $
+
+/**
+ * @file
+ * Contains theme override functions and preprocess functions for the theme.
+ *
+ * ABOUT THE TEMPLATE.PHP FILE
+ *
+ *   The template.php file is one of the most useful files when creating or
+ *   modifying Drupal themes. You can add new regions for block content, modify
+ *   or override Drupal's theme functions, intercept or make additional
+ *   variables available to your theme, and create custom PHP logic. For more
+ *   information, please visit the Theme Developer's Guide on Drupal.org:
+ *   http://drupal.org/theme-guide
+ *
+ * OVERRIDING THEME FUNCTIONS
+ *
+ *   The Drupal theme system uses special theme functions to generate HTML
+ *   output automatically. Often we wish to customize this HTML output. To do
+ *   this, we have to override the theme function. You have to first find the
+ *   theme function that generates the output, and then "catch" it and modify it
+ *   here. The easiest way to do it is to copy the original function in its
+ *   entirety and paste it here, changing the prefix from theme_ to horns_of_green_.
+ *   For example:
+ *
+ *     original: theme_breadcrumb()
+ *     theme override: horns_of_green_breadcrumb()
+ *
+ *   where horns_of_green is the name of your sub-theme. For example, the
+ *   zen_classic theme would define a zen_classic_breadcrumb() function.
+ *
+ *   If you would like to override any of the theme functions used in Zen core,
+ *   you should first look at how Zen core implements those functions:
+ *     theme_breadcrumbs()      in zen/template.php
+ *     theme_menu_item_link()   in zen/template.php
+ *     theme_menu_local_tasks() in zen/template.php
+ *
+ *   For more information, please visit the Theme Developer's Guide on
+ *   Drupal.org: http://drupal.org/node/173880
+ *
+ * CREATE OR MODIFY VARIABLES FOR YOUR THEME
+ *
+ *   Each tpl.php template file has several variables which hold various pieces
+ *   of content. You can modify those variables (or add new ones) before they
+ *   are used in the template files by using preprocess functions.
+ *
+ *   This makes THEME_preprocess_HOOK() functions the most powerful functions
+ *   available to themers.
+ *
+ *   It works by having one preprocess function for each template file or its
+ *   derivatives (called template suggestions). For example:
+ *     THEME_preprocess_page    alters the variables for page.tpl.php
+ *     THEME_preprocess_node    alters the variables for node.tpl.php or
+ *                              for node-forum.tpl.php
+ *     THEME_preprocess_comment alters the variables for comment.tpl.php
+ *     THEME_preprocess_block   alters the variables for block.tpl.php
+ *
+ *   For more information on preprocess functions and template suggestions,
+ *   please visit the Theme Developer's Guide on Drupal.org:
+ *   http://drupal.org/node/223440
+ *   and http://drupal.org/node/190815#template-suggestions
+ */
+
+
+/*
+ * Add any conditional stylesheets you will need for this sub-theme.
+ *
+ * To add stylesheets that ALWAYS need to be included, you should add them to
+ * your .info file instead. Only use this section if you are including
+ * stylesheets based on certain conditions.
+ */
+/* -- Delete this line if you want to use and modify this code
+// Example: optionally add a fixed width CSS file.
+if (theme_get_setting('horns_of_green_fixed')) {
+  drupal_add_css(path_to_theme() . '/layout-fixed.css', 'theme', 'all');
+}
+// */
+
+
+/**
+ * Implementation of HOOK_theme().
+ */
+function horns_of_green_theme(&$existing, $type, $theme, $path) {
+  $hooks = zen_theme($existing, $type, $theme, $path);
+  // Add your theme hooks like this:
+  /*
+  $hooks['hook_name_here'] = array( // Details go here );
+  */
+  // @TODO: Needs detailed comments. Patches welcome!
+
+  $hooks['user_login_block'] = array(
+    'arguments' => array('form' => NULL),
+    'template' => 'user-login-block',
+  );
+
+  return $hooks;
+}
+
+/**
+ * Override or insert variables into all templates.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered (name of the .tpl.php file.)
+ */
+/*function horns_of_green_preprocess(&$vars, $hook) {
+	$closure = $vars['closure_region'];
+	$closure = $closure . '<script src="/sites/default/files/LYTIKS/lytiks_tracking_code.js" type="text/javascript"></script>';
+	$closure = $closure . '<script src="/sites/default/files/LYTIKS/lytiks_tracking_code2.js" type="text/javascript"></script>';
+	//$closure = $closure . "<noscript><img src='http://lytiks.conversionassociates.com/content/WebTrack/track.gif?noscript=1&aweid=0f30cb58-00fe-4ab4-8daf-63d0b3caff93&action=PageView'/></noscript>";
+	$vars['closure_region'] = $closure;
+	//$vars
+  
+}*/
+// */
+
+/**
+ * Override or insert variables into the page templates.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("page" in this case.)
+ */
+///* -- Delete this line if you want to use this function
+function horns_of_green_preprocess_page(&$vars, $hook) {
+	// get some interesting urls...
+	$vars['url'] = "http://" . $_SERVER['HTTP_HOST'] .
+		url();
+
+	$vars['images'] = "http://" . $_SERVER['HTTP_HOST'] .
+		url( $vars['directory'] ) . "/images";
+
+    $vars['theme'] = "http://" . $_SERVER['HTTP_HOST']
+		. url( $vars['directory'] );
+
+    $vars['uri'] = "http://" . $_SERVER['HTTP_HOST'] .
+		$_SERVER['REQUEST_URI'];
+		
+	// set the page header image to be used on this page
+	$vars['pageHeaderImage'] = _getPageHeaderImage($vars['uri']);
+	
+	// determine if the page title should be displayed
+	$vars['showPageTitle'] = _shouldDisplayPageTitle($vars['uri']);
+	
+	$quick_find_buttons = '<div><a href="/resources" title="Search Resources"><img src="/sites/all/themes/horns_of_green/images/common/common_bigBtn_resources.png" alt="Search Resources" /></a>Resources</div>' .
+            '<div><a href="/events/calendar" title="View Events"><img src="/sites/all/themes/horns_of_green/images/common/common_bigBtn_events.png" alt="View Events" /></a>Events</div>' .
+            '<div><a href="/" title="View the Feed"><img src="/sites/all/themes/horns_of_green/images/common/common_bigBtn_feed.png" alt="View the Feed" /></a>Feed</div>' .
+            '<div><a href="/jobboard/search" title="Find a great job, or that new talent"><img src="/sites/all/themes/horns_of_green/images/common/common_bigBtn_job.png" alt="View Job Board" /></a>Job Board</div>' .
+			'<div><a href="/students/programs" title="Find great student programs"><img src="/sites/all/themes/horns_of_green/images/common/bigBtn_student2.png" alt="View Student Resources" /></a>Students</div>';
+
+	$vars['quick_find'] = $quick_find_buttons;
+
+	$vars['subscribe_button'] = '<a id="subscribe" href="/mailchimp/subscribe" title="Subscribe to Updates"><img src="/sites/all/themes/horns_of_green/images/common/common_subscribe.jpg" alt="Subscribe to Updates" /></a>';
+}
+// */
+
+/**
+ * Override or insert variables into the node templates.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("node" in this case.)
+ */
+function horns_of_green_preprocess_node(&$vars, $hook) {
+	$node = $vars['node'];
+	if(! empty($node->links['addthis']) ){
+	  $vars['addthis'] = $node->links['addthis']['title']; 
+	  unset($node->links['addthis']);
+	} 
+
+	$vars['links'] = !empty($node->links) ? theme('links', $node->links, array('class' => 'links inline')) : '';
+}
+
+/**
+ * Override or insert variables into the comment templates.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("comment" in this case.)
+ */
+/* -- Delete this line if you want to use this function
+function horns_of_green_preprocess_comment(&$vars, $hook) {
+  $vars['sample_variable'] = t('Lorem ipsum.');
+}
+// */
+
+/**
+ * Override or insert variables into the block templates.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("block" in this case.)
+ */
+/* -- Delete this line if you want to use this function
+function horns_of_green_preprocess_block(&$vars, $hook) {
+  $vars['sample_variable'] = t('Lorem ipsum.');
+}
+// */
+
+
+/**
+* Override or insert PHPTemplate variables into the search_theme_form template.
+*
+* @param $vars
+*   A sequential array of variables to pass to the theme template.
+* @param $hook
+*   The name of the theme function being called (not used in this case.)
+*/
+function horns_of_green_preprocess_search_block_form(&$vars, $hook) {
+  // Note that in order to theme a search block you should use
+  // 'search_block_form' instead of 'search_theme_form'.
+
+  // Modify elements of the search form
+  //$vars['form']['search_block_form']['#title'] = t('');
+  unset($vars['form']['search_block_form']['#title']);
+ 
+  // Set a default value for the search box
+  $vars['form']['search_block_form']['#value'] = t('Search Greenhorn Connect');
+ 
+  // Add a custom class to the search box
+  $vars['form']['search_block_form']['#attributes'] = array('class' => 'NormalTextBox txtSearch',
+  'onfocus' => "if (this.value == 'Search Greenhorn Connect') {this.value = '';}",
+  'onblur' => "if (this.value == '') {this.value = 'Search Greenhorn Connect';}");
+ 
+  // Change the text on the submit button
+  //$vars['form']['submit']['#value'] = t('Go');
+
+  // Rebuild the rendered version (search form only, rest remains unchanged)
+  unset($vars['form']['search_block_form']['#printed']);
+  $vars['search']['search_block_form'] = drupal_render($vars['form']['search_block_form']);
+
+  $vars['form']['submit']['#type'] = 'image_button';
+  $vars['form']['submit']['#src'] = path_to_theme() . '/images/common/common_header_siteSearchBtn.jpg';
+
+/*	$vars['form']['submit'] = '<div id="search-button">
+      <input type="image" src="/sites/all/themes/horns_of_green/images/common/common_header_siteSearchBtn.jpg" class="form-submit" id="edit-submit" name="op"/>
+    </div>';*/
+
+  // Rebuild the rendered version (submit button, rest remains unchanged)
+  unset($vars['form']['submit']['#printed']);
+  $vars['search']['submit'] = drupal_render($vars['form']['submit']);
+
+  // Collect all form elements to make it easier to print the whole form.
+  $vars['search_form'] = implode($vars['search']);
+}
+
+
+function get_user_login_form() {
+  $form_id = 'user_login';
+  $form = array();
+  $form['name'] = array(
+    '#type' => 'textfield',
+    '#maxlength' => 60,
+    '#required' => TRUE,
+    '#attributes' => array('tabindex' => '1'),
+  );
+  $form['pass'] = array(
+    '#type' => 'password',
+    '#required' => TRUE,
+    '#attributes' => array('tabindex' => '2'),
+  );
+  $form['submit'] = array(
+    '#type' => 'image_button',
+    '#src' => path_to_theme() . '/images/common/common_signInBtn.jpg',
+    '#attributes' => array('tabindex' => '3')
+  );
+  $form['#validate'] = user_login_default_validators();
+  $form['#build_id'] = sprintf('form-%s', md5(uniqid(mt_rand(), TRUE)));
+  $form_state = array();
+  drupal_prepare_form($form_id, $form, $form_state);
+  drupal_process_form($form_id, $form, $form_state);
+  $out = new stdClass;
+  $out->form_start =
+    sprintf("<form method='post' accept-charset='UTF-8' action='%s'>",
+    url('user/login'));
+  $out->form_end = "</form>";
+  $out->name = drupal_render($form['name']);
+  $out->pass = drupal_render($form['pass']);
+  $out->submit =
+    drupal_render($form['form_id']) .
+    drupal_render($form['form_build_id']) .
+    drupal_render($form['submit']);
+  return $out;
+}
+
+/**
+ * Helper function that builds the nested lists of a nice menu.
+ *
+ * @param $menu
+ *   Menu array from which to build the nested lists.
+ */
+function horns_of_green_nice_menu_build($menu) {
+  $output = '';
+
+  foreach ($menu as $menu_item) {
+    $mlid = $menu_item['link']['mlid'];
+    // Check to see if it is a visible menu item.
+    if ($menu_item['link']['hidden'] == 0) {
+      // Build class name based on menu path
+      // e.g. to give each menu item individual style.
+      // Strip funny symbols.
+      $clean_path = str_replace(array('http://', '<', '>', '&', '=', '?', ':'), '', $menu_item['link']['href']);
+      // Convert slashes to dashes.
+      $clean_path = str_replace('/', '-', $clean_path);
+      $path_class = 'menu-path-'. $clean_path;
+      // If it has children build a nice little tree under it.
+      if ((!empty($menu_item['link']['has_children'])) && (!empty($menu_item['below']))) {
+        // Keep passing children into the function 'til we get them all.
+        $children = theme('nice_menu_build', $menu_item['below']);
+        // Set the class to parent only of children are displayed.
+        $parent_class = $children ? 'menuparent ' : '';
+        $output .= '<li id="menu-'. $mlid .'" class="'. $parent_class . $path_class . '">' . '<div class="menu-item-left-cap"><div class="menu-item-right-cap">' . theme('menu_item_link', $menu_item['link']);
+        // Build the child UL only if children are displayed for the user.
+        if ($children) {
+          $output .= '<ul>';
+          $output .= $children;
+          $output .= "</ul>\n";
+        }
+        $output .= "</div></div></li>\n";
+      }
+      else {
+        $output .= '<li id="menu-'. $mlid .'" class="'. $path_class .'">'. '<div class="menu-item-left-cap"><div class="menu-item-right-cap">' . theme('menu_item_link', $menu_item['link']) .'</div></div></li>'."\n";
+      }
+    }
+  }
+  return $output;
+}
+
+/**
+ * Helper function that determines what page title image to use based on the Uri. The function sets
+ * the $title_image variable to the file name of the page header image to use.
+ * 
+ * @param $uri
+ *   Uri of the page currently being rendered.
+ */
+function _getPageHeaderImage($uri)
+{
+	$pageHeader = 'pageHeader_default.jpg';
+	
+	if (strpos($uri, "/blog/")) {
+		$pageHeader = "pageHeader_blogPost.jpg";
+	}
+	else if (strpos($uri, "/blog-categories/")) {
+		$pageHeader = "pageHeader_blog.jpg";
+	}
+	else if (strpos($uri, "/resources/learning/") || strpos($uri, "/resources/general/")) {
+		$pageHeader = "pageHeader_resourceInfo.jpg";
+	}
+	else if (strpos($uri, "/resources/learning")) {
+		$pageHeader = "pageHeader_resourceCenter.jpg";
+	}
+	else if (strpos($uri, "/resources")) {
+		$pageHeader = "pageHeader_resourceCenter.jpg";
+	}
+	
+	return $pageHeader;
+}
+ 
+/**
+ * Helder function to deteremine whether or not to show the page's title in the body of the page
+ * based on the Uri.
+ *
+ * @param $uri
+ *   Uri of the page currently being rendered
+ */
+function _shouldDisplayPageTitle($uri)
+{
+	return true;
+}
+
+/**
+ * Override theme function from Calendar module to remove the headings
+ * from the Calendar Legend block.
+ * 
+ * Format a node stripe legend
+ */
+function horns_of_green_calendar_stripe_legend() {
+  if (empty($GLOBALS['calendar_stripes'])) {
+    return '';
+  }
+  $rows = array();
+  $output = '';    
+  foreach ((array) $GLOBALS['calendar_stripes'] as $label => $stripe) {
+    if($stripe){
+      $rows[] = array('<div style="background-color:'. $stripe .';color:'. $stripe .'" class="stripe" title="Key: '. $label .'">&nbsp;</div>', $label);
+    }
+  }
+  if (!empty($rows)) {
+    $output .= theme('table', null, $rows, array('class' => 'mini calendar-legend'));
+  }
+  return $output;
+}
